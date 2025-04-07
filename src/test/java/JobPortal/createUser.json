@@ -1,0 +1,32 @@
+{
+  "experience": [
+    "4+ years of experience in mobile application development using Flutter and Dart.",
+    "Built and published apps on both iOS and Android platforms using a single codebase.",
+    "Integrated third-party APIs such as Google Maps, Firebase Authentication, and Stripe payments.",
+    "Experienced in writing clean, maintainable code and following MVVM architecture patterns."
+  ],
+  "jobDescription": "We are seeking a skilled Mobile App Developer to join our fast-growing team. The ideal candidate will have strong experience building cross-platform mobile applications and a passion for user-friendly design.",
+  "jobId": 2045,
+  "jobTitle": "Mobile App Developer",
+  "project": [
+    {
+      "projectName": "Fitness Tracker App",
+      "technology": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Google Fit API"
+      ]
+    },
+    {
+      "projectName": "On-Demand Delivery App",
+      "technology": [
+        "Flutter",
+        "Dart",
+        "Google Maps API",
+        "Stripe",
+        "Push Notifications"
+      ]
+    }
+  ]
+}

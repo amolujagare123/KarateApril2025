@@ -9,7 +9,7 @@ public class SampleRunner {
     {
         return Karate.run("sample")
                 .relativeTo(getClass())
-                .tags("@update")
+                .tags("@createDP")
                 ;
     }
 }
