@@ -1,6 +1,7 @@
 Feature: all Demo scenarios
 
-
+  Background:
+    * def shared = { value: 'initial' }
 
     @DemoDataProvider
     Scenario Outline: print the data
@@ -24,6 +25,21 @@ Feature: all Demo scenarios
         And print val2
         * def val3 = val1 + val2
         And print val3
+
+
+
+
+ @valueTravel
+  Scenario: Set Value
+    * print '  shared value:', shared.value
+   # * def shared.value = 'updated'
+    * print 'Updated shared value:', shared.value
+
+  @valueTravel
+  Scenario: get Value
+   # * def shared.value = 'updated'
+    * print 'Updated shared value:', shared.value
+
 
 
 

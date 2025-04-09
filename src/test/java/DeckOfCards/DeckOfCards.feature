@@ -10,3 +10,12 @@ Feature: All Deck of cards Scenarios
       When method get
       And status 200
       And match response.remaining == 52
+      And match response ==
+      """
+      {
+        "success": #boolean,
+        "deck_id": #string,
+        "remaining": #number,
+        "shuffled": #boolean
+      }
+      """

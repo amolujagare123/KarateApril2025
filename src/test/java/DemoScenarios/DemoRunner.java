@@ -9,7 +9,7 @@ public class DemoRunner {
     {
         return Karate.run("DemoScenario")
                 .relativeTo(getClass())
-                .tags("@variables")
+                .tags("@valueTravel")
                 ;
     }
 }

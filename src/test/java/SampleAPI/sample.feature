@@ -11,6 +11,61 @@ Feature: all sample API Tests
     And param page = '2'
     * method get
     Then status 200
+    * def user =
+          """
+           {
+                "id": '#number',
+                "email": '#string',
+                "first_name": '#string',
+                "last_name": '#string',
+                "avatar": '#string'
+              }
+
+          """
+    * def support =
+
+          """
+          {
+              "url": '#string',
+              "text": '#string'
+            }
+
+          """
+
+    And match response ==
+    """
+    {
+      "page": '#number',
+      "per_page": '#number',
+      "total": '#number',
+      "total_pages": '#number',
+      "data": '#[] #(user)',
+      "support": '#(support)'
+    }
+    """
+
+  @createSV @create1
+  Scenario: to verify create users request executes successfully
+  #  Given url 'https://reqres.in/'
+    When path '/api/users'
+    And request
+    """
+    {
+        "name": "morpheus",
+        "job": "leader"
+     }
+    """
+    And method post
+    Then status 201
+    And match response ==
+    """
+    {
+    "name": '#string',
+    "job": '#string',
+    "id": '#string',
+    "createdAt": '#string'
+    }
+    """
 
   @create1
   Scenario: to verify create users request executes successfully
