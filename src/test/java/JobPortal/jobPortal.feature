@@ -53,6 +53,73 @@ Feature: all job portal scenarios
     Then status 200
 
 
+
+  @createSV
+  Scenario: to test the get all jobs request
+    Given url 'http://localhost:9897/'
+    When  path '/normal/webapi/add'
+    And request
+    """
+{
+  "experience": [
+    "3+ years of experience in full-stack web development using JavaScript, React, and Node.js.",
+    "Proficient in designing RESTful APIs and working with SQL and NoSQL databases like PostgreSQL and MongoDB.",
+    "Hands-on experience with CI/CD pipelines using GitHub Actions and Jenkins.",
+    "Worked in agile teams with JIRA and participated in daily scrums, sprint planning, and code reviews."
+  ],
+  "jobDescription": "We are looking for a talented Full-Stack Developer to join our engineering team. You will be responsible for developing and maintaining web applications, collaborating with cross-functional teams, and ensuring high performance and responsiveness of applications.",
+  "jobId": 1023,
+  "jobTitle": "Full-Stack Developer",
+  "project": [
+    {
+      "projectName": "E-Commerce Platform",
+      "technology": [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Docker",
+        "AWS"
+      ]
+    },
+    {
+      "projectName": "Real-Time Chat Application",
+      "technology": [
+        "Next.js",
+        "Firebase",
+        "Tailwind CSS",
+        "Socket.IO"
+      ]
+    }
+  ]
+}
+
+    """
+    And method post
+    Then status 201
+    *  def project =
+
+        """
+
+            {
+              "projectName": '#string',
+              "technology":'#[] #string'
+            }
+
+        """
+    Then match response ==
+    """
+    {
+        "experience": '#[] #string',
+
+        "jobDescription": '#string',
+        "jobId": '#number',
+        "jobTitle": '#string',
+        "project":'#[] #(project)'
+      }
+    """
+
+
   @create2
   Scenario: to test the get all jobs request
     Given url 'http://localhost:9897/'

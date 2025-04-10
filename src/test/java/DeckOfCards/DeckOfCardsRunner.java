@@ -9,7 +9,7 @@ public class DeckOfCardsRunner {
     {
         return Karate.run("DeckOfCards")
                 .relativeTo(getClass())
-               // .tags("@update")
+                 .tags("@drawCard")
                 ;
     }
 }
