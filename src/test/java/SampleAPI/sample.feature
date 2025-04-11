@@ -156,6 +156,23 @@ Feature: all sample API Tests
       | Daniel Moore  | UX Designer         |
 
 
+  @createExternalFileVar @create1
+  Scenario: to verify create users request executes successfully
+  #  Given url 'https://reqres.in/'
+    When path '/api/users'
+    * def fileCall = call read('./support/impValues.feature')
+    * def myName = fileCall.name
+    * def myJob = fileCall.job
+    And request
+    """
+    {
+        "name": "#(myName)",
+        "job": "#(myJob)"
+     }
+    """
+    And method post
+    Then status 201
+
 
 
 

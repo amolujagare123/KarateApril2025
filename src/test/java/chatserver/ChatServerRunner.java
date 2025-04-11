@@ -1,15 +1,15 @@
-package SampleAPI;
+package chatserver;
 
 import com.intuit.karate.junit5.Karate;
 
-public class SampleRunner {
+public class ChatServerRunner {
 
     @Karate.Test
     public Karate sampleRun()
     {
-        return Karate.run("sample")
+        return Karate.run("chatServer")
                 .relativeTo(getClass())
-                .tags("@createExternalFileVar")
+              //  .tags("@drawCard")
                 ;
     }
 }

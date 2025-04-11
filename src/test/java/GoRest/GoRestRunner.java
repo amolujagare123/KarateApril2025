@@ -9,7 +9,7 @@ public class GoRestRunner {
     {
         return Karate.run("Gorest")
                 .relativeTo(getClass())
-          //      .tags("@createSV")
+              .tags(" @createExternalVar")
                 ;
     }
 }
